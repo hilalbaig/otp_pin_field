@@ -27,7 +27,7 @@ class AppSignatureHelper(context: Context?) : ContextWrapper(context) {
      */
     val appSignature: String
         get() {
-            val appSignatures: ArrayList<String>? = appSignatures
+            val appSignatures: ArrayList<String> = appSignatures
             return if (appSignatures.isNotEmpty()) {
                 appSignatures[0]
             } else {
@@ -49,7 +49,7 @@ class AppSignatureHelper(context: Context?) : ContextWrapper(context) {
                 // Get all package signatures for the current package
                 val packageName: String = packageName
                 val packageManager: PackageManager = packageManager
-                val signatures: Array<Signature> = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                val signatures: Array<Signature>? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                         packageManager.getPackageInfo(
                             packageName,
                             PackageManager.GET_SIGNING_CERTIFICATES
