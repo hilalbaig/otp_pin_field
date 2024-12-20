@@ -27,7 +27,7 @@ class AppSignatureHelper(context: Context?) : ContextWrapper(context) {
      */
     val appSignature: String
         get() {
-            val appSignatures: ArrayList<String> = appSignatures
+            val appSignatures: ArrayList<String>? = appSignatures
             return if (appSignatures.isNotEmpty()) {
                 appSignatures[0]
             } else {
